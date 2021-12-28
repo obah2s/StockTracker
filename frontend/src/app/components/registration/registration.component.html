@@ -1,1 +1,19 @@
-<p>registration works!</p>
+<form [formGroup]="registrationForm">
+    <mat-form-field >
+        <mat-label>First name</mat-label>
+        <input matInput placeholder="First name" formControlName="firstName">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Last name</mat-label>
+        <input matInput placeholder="Last name" formControlName="lastName">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="E-mail" formControlName="email">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input type="password" matInput placeholder="******" formControlName="password">
+    </mat-form-field>
+    <button mat-button color="primary" [disabled]="!registrationForm.valid">Register</button>
+</form>
