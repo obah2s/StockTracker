@@ -1,1 +1,14 @@
-<p>sidebar works!</p>
+<!--<mat-nav-list *ngFor="let stock of myWishList; let i=index;">
+    <div>{{ i+1 }}</div>
+    <div mat-list-item>{{ stock }}</div>
+    <button (click)="delete(i)">Remove</button>
+</mat-nav-list>-->
+
+<div class="container">
+<mat-nav-list class="list-group" *ngFor="let stock of myWishList; let i=index;">
+    <mat-list-item class="list-group-item" (click)="setStock(stock)">{{ stock }}</mat-list-item>
+    <button class="delete-stock" (click)="delete(i)">Remove</button>
+</mat-nav-list>
+<input class="mat-input" [(ngModel)]="inputStock">
+<button class="add-stock" (click)="addStock()">ADD STOCK</button>
+</div>

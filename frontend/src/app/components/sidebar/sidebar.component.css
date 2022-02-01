@@ -1,0 +1,34 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-nav-list {
+    display: flex;
+    align-items: center; 
+	justify-content: center;
+}
+.add-stock {
+    background-color: #6643b5;
+    border-radius: 5px;
+    color: white;
+    margin-top: 10px;
+}
+
+.delete-stock { 
+    background-color: #27296d /*#ff0000*/;
+    color: white;
+    border-radius: 10px;
+}
+
+.mat-input {
+    margin-top: 40px;
+    height: 40px;
+}
+
+button {
+    height: 40px;
+    text-align: center;
+    font-family: Helvetica;
+    border: none;
+}

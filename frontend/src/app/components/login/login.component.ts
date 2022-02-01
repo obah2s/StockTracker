@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,12 +16,20 @@ export class LoginComponent implements OnInit {
     password : new FormControl(''),
   });
 
-  constructor() { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
   }
   onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.loginForm.value);
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    };
+    let obs = this.http.post('http://localhost:3000/api/auth/login', JSON.stringify(this.loginForm.value),options);
+    obs.subscribe(res=>{
+      this.router.navigate(['home']);
+    },err => { alert('Username or password is incorrect')});
   }
 }

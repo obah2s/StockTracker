@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -15,7 +16,7 @@ export class RegistrationComponent implements OnInit {
     password: new FormControl('', Validators.required),
   });
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
 
   }
 
@@ -51,6 +52,16 @@ export class RegistrationComponent implements OnInit {
       //body: JSON.stringify(this.registrationForm.value) 
     };
     let obs = this.http.post('http://localhost:3000/api/auth/signup', JSON.stringify(this.registrationForm.value), options);
-    obs.subscribe(()=> alert('Registration successful!'));
+    obs.subscribe((res: any) => {
+      if (res.statusCode === 200) {
+        console.log(res);
+        alert('Registration successful!');
+        this.router.navigate(['login']);
+      } 
+      
+    },
+    error =>  {
+        alert('Registration failed because user already exists');
+    });
   }
 }

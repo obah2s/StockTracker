@@ -6,7 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
-
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +16,8 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { SearchComponent } from './components/search/search.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { MatListModule } from '@angular/material/list';
+import { HomeComponent } from './components/home/home.component'; 
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     RegistrationComponent,
     SearchComponent,
     SidebarComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     BrowserAnimationsModule,
     MatButtonModule,
     HttpClientModule,
+    MatListModule,
+    FormsModule
   ],
   exports: [
     MatInputModule,

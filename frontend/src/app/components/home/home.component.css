@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    background-color: #fafafa;
+    margin-top: 0;
+}
+.sidebar {
+    width: 15%;
+    margin-left: 5%;
+    margin-right: 10%;  
+}
+.graph {
+    width: 70%;
+}
+.presentation {
+    background-color: #dfd3c3;
+    text-align: center;
+    margin-bottom: 0;
+}
